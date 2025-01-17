@@ -1,0 +1,8 @@
+{
+    "name": "vibrating-string",
+    "version": "1.0.0",
+    "dependencies": [
+        "sdl2"
+    ],
+    "builtin-baseline": "e2edf52610d2c94d2038fe30b247ea5a26964e1b"
+}

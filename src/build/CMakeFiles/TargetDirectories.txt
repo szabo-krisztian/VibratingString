@@ -1,0 +1,5 @@
+C:/Dev/GitHub/VibratingString/src/build/CMakeFiles/Main.dir
+C:/Dev/GitHub/VibratingString/src/build/CMakeFiles/ALL_BUILD.dir
+C:/Dev/GitHub/VibratingString/src/build/CMakeFiles/ZERO_CHECK.dir
+C:/Dev/GitHub/VibratingString/src/build/input-manager/CMakeFiles/InputManager.dir
+C:/Dev/GitHub/VibratingString/src/build/approximator/CMakeFiles/Approximator.dir

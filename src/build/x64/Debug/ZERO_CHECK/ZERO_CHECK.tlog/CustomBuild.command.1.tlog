@@ -1,0 +1,10 @@
+^C:\DEV\GITHUB\VIBRATINGSTRING\SRC\BUILD\CMAKEFILES\82A44BA7006177452D3EE1DBC02DA522\GENERATE.STAMP.RULE
+setlocal
+C:\Apps\CMake\bin\cmake.exe -SC:/Dev/GitHub/VibratingString/src -BC:/Dev/GitHub/VibratingString/src/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Dev/GitHub/VibratingString/src/build/Vibrating_String_Project.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -1,0 +1,10 @@
+^C:\DEV\GITHUB\VIBRATINGSTRING\SRC\INPUT-MANAGER\CMAKELISTS.TXT
+setlocal
+C:\Apps\CMake\bin\cmake.exe -SC:/Dev/GitHub/VibratingString/src -BC:/Dev/GitHub/VibratingString/src/build --check-stamp-file C:/Dev/GitHub/VibratingString/src/build/input-manager/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

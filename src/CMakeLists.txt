@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 find_package(SDL2 CONFIG REQUIRED)
+find_package(sdl2-gfx CONFIG REQUIRED)
 
 add_executable(Main main.cpp)
 add_subdirectory(input-manager)
@@ -19,7 +20,8 @@ target_include_directories(Main
 target_link_libraries(Main
     PRIVATE
     $<TARGET_NAME_IF_EXISTS:SDL2::SDL2main>
-    $<IF:$<TARGET_EXISTS:SDL2::SDL2>,SDL2::SDL2,SDL2::SDL2-static>       
+    $<IF:$<TARGET_EXISTS:SDL2::SDL2>,SDL2::SDL2,SDL2::SDL2-static>
+    SDL2::SDL2_gfx
     InputManager
     Approximator
 )

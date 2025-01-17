@@ -4,13 +4,14 @@
 
 #define SDL_MAIN_HANDLED
 #include <SDL2/SDL.h>
+#include <SDL2/SDL2_gfxPrimitives.h>
 
 #include "InputManager.h"
 #include "Approximator.h"
 
 static constexpr int   WINDOW_WIDTH = 640;
 static constexpr int   WINDOW_HEIGHT = 480;
-static constexpr int   CHORD_RESOLUTION = 50;
+static constexpr int   CHORD_RESOLUTION = 40;
 static constexpr float SUB_CHORD_LENGTH = static_cast<float>(WINDOW_WIDTH) / static_cast<float>(CHORD_RESOLUTION);
 static constexpr int   ANIMATION_SPEED = 75;
 static constexpr float HEIGHT_MODIFYING_SPEED = 10.0f;
@@ -47,7 +48,7 @@ void DrawChord(SDL_Renderer *renderer)
     float elapsed_time = ANIMATION_SPEED * elapsed_duration.count();
     float Q = approximator.GetQ();
 
-    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+    
 
     std::cout << elapsed_time << std::endl;
 
@@ -61,9 +62,11 @@ void DrawChord(SDL_Renderer *renderer)
             float x1 = i * SUB_CHORD_LENGTH;
             float y1 = WINDOW_HEIGHT / 2 - Q * x1 + (Q / approximator.LENGTH) * static_cast<float>(std::pow(x1, 2));
 
-            SDL_RenderDrawLine(renderer, 
+            
+
+            aalineRGBA(renderer, 
                 static_cast<int>(x0), static_cast<int>(y0), 
-                static_cast<int>(x1), static_cast<int>(y1));
+                static_cast<int>(x1), static_cast<int>(y1), 255, 255, 255, 255);    
         }
         SDL_RenderPresent(renderer);
         return;
@@ -77,9 +80,9 @@ void DrawChord(SDL_Renderer *renderer)
         float x1 = i * SUB_CHORD_LENGTH;
         float y1 = WINDOW_HEIGHT / 2.0f - approximator.GetApproximation(x1, elapsed_time, APPROXIMATION);
 
-        SDL_RenderDrawLine(renderer, 
-            static_cast<int>(x0), static_cast<int>(y0), 
-            static_cast<int>(x1), static_cast<int>(y1));
+        aalineRGBA(renderer, 
+                static_cast<int>(x0), static_cast<int>(y0), 
+                static_cast<int>(x1), static_cast<int>(y1), 255, 255, 255, 255);
     }
     SDL_RenderPresent(renderer);
 }
@@ -118,7 +121,7 @@ int main(int argc, char *argv[])
     while (is_app_running)
     {
         manager.Update();
-        SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
+        SDL_SetRenderDrawColor(renderer, 13, 17, 23, 255);
         SDL_RenderClear(renderer);
         DrawChord(renderer);
     }

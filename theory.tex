@@ -65,7 +65,7 @@
 	\emergencystretch 3em
 	\maketitle
 	\begin{center}
-		\textit{The following book was used as a source for the theory:}
+		\textit{The entire derivation of the theory and more detailed documentation can be found in the following book, on which this note is also heavily based:}
 	\end{center}
 	
 \begin{thebibliography}{9}
@@ -144,6 +144,30 @@ where $ Q := \frac{4h}{l} $. Also, let the velocity function $g$ be as follows
 $$
 g : [0, \, l] \to \mathbf{R}, \quad g(x) := -f(x) \quad (x \in [0, \, l]).
 $$
+
+\begin{center}
+	\begin{tikzpicture}
+		\begin{axis}[
+			axis lines = middle,
+			xlabel = {$x$},
+			ylabel = {$f(x)$},
+			samples = 100,
+			domain = 0:5,
+			ymin=0, ymax=5,
+			ytick = {0,1,2,3,4,5},
+			xticklabels=\empty,
+			yticklabels=\empty
+			]
+			\addplot[blue, thick] {-(4*3/25)*x^2 + (4*3/5)*x};
+			\node at (2.5,3) [anchor=south] {$(l/2, h)$};
+			\draw[dashed] (2.5,0) -- (2.5,3);
+			\draw[dashed] (0,3) -- (2.5,3);
+			\addlegendentry{$f$}
+		\end{axis}
+	\end{tikzpicture}	
+\end{center}
+
+
 The last task left is to -- for every $n \in \mathbf{N}$ -- determine the coefficients $a_n$, $b_n$ and $c_n$ from the previous section by expanding the functions $f$ and $g$ into sine series. Again, by omitting the details this can be done quite easily. For every $n \in \mathbf{N}^+$, let
 $$
 \begin{array}{ll}
@@ -177,7 +201,5 @@ $$
 $$
  \underbrace{\frac{4l Q\big( (-1)^n - 1 \big)}{\pi^3n^3}}_{d_n} \sin\left(\frac{n \pi x}{l}\right) \cdot \Bigg(\underbrace{(-1)}_{a_n}\cos\left(\frac{\pi \sqrt{q} n t}{l}\right) + \underbrace{\frac{l}{n \sqrt{q} \pi}}_{b_n} \sin\left(\frac{\pi \sqrt{q} n t}{l}\right)\Bigg).
 $$
-
-
 
 \end{document}
